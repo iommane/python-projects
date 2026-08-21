@@ -1,25 +1,15 @@
-# Number Guessing Game
+# 🎮 Number Guessing Game
 
-A beginner Python project where the computer generates
-a random number and the player tries to guess it.
+A beginner Python project where the computer generates a random number and the player tries to guess it.
 
-## Features
+## ⭐ Features
 
-- Easy, Medium, Hard difficulty
+- Difficulty levels :- Easy, Medium, Hard 
 - Attempt counter
-- Input validation
 
-## Concepts Used
+## 🚀 How to run?
 
-- Functions
-- Type hints
-- Conditions
-- While loops
-- Exception handling
-- Random module
-
-## Run
-
+Run command:
 ```bash
 python main.py
 ```
