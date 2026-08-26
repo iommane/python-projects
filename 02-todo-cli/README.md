@@ -10,6 +10,7 @@ A simple command-line Todo application built with Python.
 02-todo-cli/
 ├── main.py
 ├── tasks.json
+├── sample.json
 └── README.md
 ```
 
