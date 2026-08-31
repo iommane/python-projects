@@ -1,76 +1,95 @@
 import random
 
-# Generate a random target based on difficulty
-def generate_target(level: str, start: int = 1) -> tuple[int, int]:
-    if level == "easy":
-        end = 10
-    elif level == "medium":
-        end = 100
-    elif level == "hard":
-        end = 1000
-    else:
-        raise ValueError("Invalid difficulty")
 
-    target = random.randint(start, end)
-    return target, end
+class GuessGame:
+    def __init__(self):
+        self.target: int = 0
+        self.end_number: int = 0
+        self.attempts: int = 0
+        self.difficulty: str = None
+        self.levels: dict = {"easy": 10, "medium": 100, "hard": 1000}
 
-# Validate user's guess againts the target
-def validate_guess(target: int, entry: int) -> tuple[bool, str]:
-    if entry == target:
-        return True, "Correct!"
-    if entry < target:
-        return False, "Too low"
-    return False, "Too high"
+    def set_difficulty(self) -> None:
+        print("\nChoose difficulty:\n- Easy\n- Medium\n- Hard")
 
-game_state = True
+        while True:
+            level = input("Enter level you want to play: ").strip().lower()
 
-print("Welcome to guess the number game")
-
-while game_state:
-    guess_state = True
-    attempts = 0
-
-    try:
-        level = input("Enter your difficulty level (easy, medium, hard): ").strip().lower()
-        target, end = generate_target(level = level)
-    except ValueError:
-        print("Please enter valid level")
-        continue
-    except KeyboardInterrupt:
-        print("Stopped")
-        exit()
-        
-    while guess_state:
-        try:
-            entry = int(input(f"Guess number between 1 to {end} : "))
-            attempts += 1
-            valid_guess, message = validate_guess(target = target, entry = entry)
-    
-            if valid_guess:
-                print(message)
-                print("Total attempts:",attempts)
-                guess_state = False
+            if level in self.levels:
+                self.difficulty = level
+                self.end_number = self.levels[level]
+                break
             else:
-                print(message)
+                print("🚫 Invalid difficulty")
 
-        except ValueError:
-            print("Guess is invalid")
-            continue
-        except KeyboardInterrupt:
-            print("Stopped")
-            exit()
+    def generate_target(self) -> None:
+        self.target = random.randint(1, self.end_number)
 
-    try:
-        retry = input("Want re-match? (yes/no) : ").strip().lower()
-        if retry == "yes":
-            continue
-        elif retry == "no":
-            game_state = False
+    def get_guess(self) -> int:
+        while True:
+            try:
+                guess = int(input(f"🤔 Enter your guess 1-{self.end_number}: "))
+
+                if 1 <= guess <= self.end_number:
+                    return guess
+                else:
+                    print(f"❌ Please enter a number between 1 and {self.end_number}")
+
+            except ValueError:
+                print("🚫 Invalid input")
+
+    def check_guess(self, guess: int) -> bool:
+        return guess == self.target
+
+    def get_hint(self, guess: int) -> None:
+        if guess < self.target:
+            print("Too low")
         else:
-            print("Invalid choice")
-            game_state = False
-    except KeyboardInterrupt:
-        print("Stopped")
-        exit()
+            print("Too high")
 
-print("Game end!")
+    def play(self) -> None:
+        print("🎮 Welcome to the Number Guessing Game!")
+
+        while True:
+            self.attempts = 0
+            self.set_difficulty()
+            self.generate_target()
+
+            while True:
+                guess = self.get_guess()
+                self.attempts += 1
+
+                if self.check_guess(guess):
+                    print(
+                        f"🎉 Correct! You guessed the number in {self.attempts} attempts!"
+                    )
+                    break
+                else:
+                    self.get_hint(guess)
+
+            if not self.retry():
+                print("Game over")
+                break
+
+    def retry(self) -> bool:
+        while True:
+            is_retry = input("\nWant to play again? (y/n): ").strip().lower()
+
+            if is_retry == "y":
+                return True
+            elif is_retry == "n":
+                return False
+            else:
+                print("🫩 Invalid input. Please enter 'y' or 'n'")
+
+
+if __name__ == "__main__":
+    try:
+        game = GuessGame()
+        game.play()
+
+    except KeyboardInterrupt:
+        print("\nGame stopped")
+
+    finally:
+        print("Thank you for playing")
