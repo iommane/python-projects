@@ -30,13 +30,31 @@ A simple command-line Todo application built with Python.
 
 ## 🚀 How to run?
 
-Install dependencies:
+1. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+2. Activate the virtual environment
+
+Windows
+```bash
+venv\Scripts\activate
+```
+
+macOS/Linux
+```bash
+source venv/bin/activate
+```
+
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Run:
+4. Run:
 
 ```bash
 python main.py
@@ -52,7 +70,7 @@ python main.py
 | `/view` | View all tasks |
 | `/complete` | Mark a task as completed |
 | `/delete` | Delete a task |
-| `/menu` | Show available commands |
+| `/help` | Show available commands |
 | `/exit` | Exit the application |
 
 
@@ -60,4 +78,4 @@ python main.py
 
 ## 🎯 Goal
 
-This project is part of my Python learning journey, progressing from basic procedural code toward Object-Oriented Programming. I hope this becomes a part of yours as well.
+This project is part of my Python learning journey, progressing from basic procedural code toward Object-Oriented Programming.
