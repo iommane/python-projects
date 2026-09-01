@@ -9,9 +9,10 @@ A simple command-line Todo application built with Python.
 ```text
 02-todo-cli/
 ├── main.py
-├── tasks.json
-├── sample.json
-└── README.md
+├── todo.py
+├── requirements.txt
+├── README.md
+└── todo.json
 ```
 
 ---
@@ -23,13 +24,19 @@ A simple command-line Todo application built with Python.
 - Complete tasks
 - Delete tasks
 - Input validation
-- Handles invalid JSON and missing `tasks.json`
+- Handles invalid JSON and missing `todo.json`
 
 ---
 
 ## 🚀 How to run?
 
-Copy code and run using:
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run:
 
 ```bash
 python main.py
@@ -43,8 +50,8 @@ python main.py
 |---|---|
 | `/add` | Add a new task |
 | `/view` | View all tasks |
-| `/complete [id]` | Mark a task as completed |
-| `/delete [id]` | Delete a task |
+| `/complete` | Mark a task as completed |
+| `/delete` | Delete a task |
 | `/menu` | Show available commands |
 | `/exit` | Exit the application |
 
