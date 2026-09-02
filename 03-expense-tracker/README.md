@@ -9,9 +9,11 @@ A simple command-line Expense Tracker built with Python.
 ```text
 03-expense-tracker/
 ├── main.py
+├── expense.py
+├── requirements.txt
+├── README.md
 ├── records.json
-├── sample.json
-└── README.md
+└── sample.json
 ```
 
 ---
@@ -29,7 +31,31 @@ A simple command-line Expense Tracker built with Python.
 
 ## 🚀 How to run?
 
-Copy code and run using:
+1. Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+2. Activate the virtual environment
+
+Windows
+```bash
+venv\Scripts\activate
+```
+
+macOS/Linux
+```bash
+source venv/bin/activate
+```
+
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Run:
 
 ```bash
 python main.py
@@ -45,7 +71,7 @@ python main.py
 | `/view` | View all expenses |
 | `/delete` | Delete a expense |
 | `/summary` | Show expense summary |
-| `/menu` | Show available commands |
+| `/help` | Show available commands |
 | `/exit` | Exit the program |
 
 
