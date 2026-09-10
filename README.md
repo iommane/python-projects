@@ -8,6 +8,7 @@ This is collection of python projects built to improve programming skills, from 
 - [01 Number Guessing Game](./01-number-guessing-game/)
 - [02 Todo CLI](./02-todo-cli/)
 - [03 Expense Tracker](./03-expense-tracker/)
+- [04 Library Management](./04-library-management/)
 
 ---
 ## 💡 Advice
