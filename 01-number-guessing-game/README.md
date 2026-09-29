@@ -8,9 +8,9 @@ A beginner Python project where the computer generates a random number and the p
 
 - Difficulty levels
 - Attempt counter
-- Max attempts
-- Validate inputs
+- Limited attempts
 - Hints
+- Game summary
 
 ---
 
